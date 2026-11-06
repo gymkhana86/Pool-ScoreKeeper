@@ -1,9 +1,5 @@
-Pool Scorekeeper PWA v4
+Pool Scorekeeper PWA v6
 
-New: awarding a game win clears both players' Solids/Stripes assignments automatically, ready for the next rack. Undo restores the previous assignments for wins recorded in v4.
+Games Won displays regular wins as the large number and default wins separately in parentheses immediately beside Games Won. A default win does not increment the regular-win counter. Undo Last Win reverses the correct type; Reset Match clears both counters. Existing v5 scores are migrated by reading recorded default wins from history.
 
-Existing scores, player names and felt color are preserved.
-
-To test on Windows: extract ZIP and open index.html in Chrome or Edge.
-To install on iPhone/iPad: host the extracted files on HTTPS, open in Safari, Share > Add to Home Screen.
-Browser local storage keeps settings on that device.
+Upload all files to the root of your GitHub Pages repository, replacing existing files.

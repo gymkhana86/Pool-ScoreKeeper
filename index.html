@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#102b24"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Pool Scorekeeper</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#102b24"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Pool Scorekeeper v16</title><script>if(location.protocol!=='file:'){const m=document.createElement('link');m.rel='manifest';m.href='manifest.webmanifest';document.head.append(m)}</script><link rel="icon" href="icon.svg" type="image/svg+xml"><style>
 :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#f6f8f5;background:#0b1c17}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,var(--felt-light,#214d3c),var(--felt-dark,#0b1c17) 70%)}main{max-width:850px;margin:auto;padding:22px 16px 60px}header{text-align:center;margin-bottom:25px}h1{font-size:clamp(27px,5vw,42px);margin:6px 0}header p{color:#bed3c8;margin:0}.board{display:grid;grid-template-columns:1fr 1fr;gap:15px}.player{background:var(--panel,#163b30);border:1px solid var(--panel-border,#3b6b56);border-radius:22px;padding:19px;display:flex;flex-direction:column;gap:16px;min-width:0}.player input{width:100%;border:1px solid #608474;background:var(--field,#0c281f);color:white;border-radius:11px;font:700 clamp(17px,3vw,25px) system-ui;padding:12px;text-align:center}.score{font-size:clamp(80px,17vw,150px);font-weight:850;line-height:1;text-align:center;font-variant-numeric:tabular-nums}.hint{text-align:center;color:#b9d2c3;font-size:13px;text-transform:uppercase;letter-spacing:2px}.team{display:grid;grid-template-columns:1fr 1fr;gap:8px}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible{outline:3px solid #f2c75a;outline-offset:2px}.team button{border:2px solid #6a8a7c;background:var(--field,#0b2a21);color:#f6f8f5;border-radius:12px;min-height:54px;font-weight:750}.team button.selected{border-color:#f5cb57;background:#395036}.ball{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;width:23px;height:23px;background:#f1c741;color:#151515;font-size:12px;margin-right:5px}.ball.stripe{background:linear-gradient(#fff 0 27%,#e4aa22 27% 73%,#fff 73%);color:#222}.win{background:#e4b94e;color:#19291e;border:0;border-radius:14px;min-height:65px;font-size:19px;font-weight:850}.win:active{transform:scale(.98)}.default-win{background:#25372e;color:#f5e8cc;border:2px solid #c9a96b;border-radius:12px;min-height:46px;font-size:14px;font-weight:750}.default-win:active{transform:scale(.98)}.tools{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}.tools button{border:1px solid #638575;border-radius:12px;background:var(--panel,#214637);color:white;padding:12px 20px;font-weight:650}.tools .danger{border-color:#a5746e;color:#ffd2c9}.message{text-align:center;color:#b9d2c3;min-height:25px;margin-top:15px}footer{text-align:center;color:#9db8a8;font-size:13px;margin-top:35px}@media(max-width:560px){main{padding:15px 10px 45px}.board{gap:9px}.player{padding:12px 9px;border-radius:15px;gap:13px}.team{grid-template-columns:1fr}.team button{min-height:44px}.win{min-height:62px;font-size:16px}.player input{padding:9px 5px}}
 .appearance{margin:26px auto 0;max-width:680px;border:1px solid #78908270;border-radius:18px;padding:16px;background:#0b1518a8}.appearance h2{font-size:17px;margin:0 0 6px;text-align:center}.appearance p{margin:0 0 14px;color:#c7d4cc;text-align:center;font-size:13px}.swatches{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.swatch{width:46px;height:46px;border-radius:50%;border:3px solid #ffffff66;background:var(--swatch);position:relative}.swatch[aria-pressed="true"]{outline:3px solid #f5cb57;outline-offset:3px}.custom-color{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:17px;font-size:14px}.custom-color input{width:55px;height:42px;border:0;background:transparent;cursor:pointer}.appearance button:focus-visible,.appearance input:focus-visible{outline:3px solid #f5cb57;outline-offset:3px}
 
@@ -15,12 +15,296 @@ main{max-width:1000px;padding-top:20px}
 .player{background:color-mix(in srgb,var(--panel,#163b30) 88%,black);box-shadow:0 8px 22px #0005;backdrop-filter:blur(5px)}
 .table-content .tools{margin-top:22px}
 @media(max-width:560px){main{padding:12px 7px 40px}.pool-table{padding:9px;border-radius:25px}.table-surface{border-width:9px;border-radius:17px;min-height:480px}.table-content{padding:33px 8px 20px}.pocket{width:39px;height:39px}.pocket.tl{left:-19px;top:-19px}.pocket.tr{right:-19px;top:-19px}.pocket.bl{left:-19px;bottom:-19px}.pocket.br{right:-19px;bottom:-19px}.pocket.tm{top:-20px}.pocket.bm{bottom:-20px}}
-.default-count{color:#f2cd79;font-weight:800;letter-spacing:0.5px;white-space:nowrap}</style></head><body><main><div class="pool-table" aria-label="Pool table with six pockets"><div class="table-surface"><span class="pocket tl"></span><span class="pocket tm"></span><span class="pocket tr"></span><span class="pocket bl"></span><span class="pocket bm"></span><span class="pocket br"></span><div class="table-content"><header><h1>🎱 Pool Scorekeeper</h1><p>Two players. One table. Keep the score.</p></header><section class="board" aria-label="Scoreboard"><article class="player"><input id="name0" aria-label="Player 1 name" maxlength="30" value="Player 1"><div class="hint">Games Won <span class="default-count" id="defaults0">(0)</span></div><div id="score0" class="score" aria-live="polite">0</div><div class="team"><button id="solid0" onclick="assign(0,'solids')"><span class="ball">1</span>Solids</button><button id="stripe0" onclick="assign(0,'stripes')"><span class="ball stripe">9</span>Stripes</button></div><button class="win" onclick="award(0)">+ Win Game</button><button class="default-win" onclick="award(0,'default')">Won by Default</button></article><article class="player"><input id="name1" aria-label="Player 2 name" maxlength="30" value="Player 2"><div class="hint">Games Won <span class="default-count" id="defaults1">(0)</span></div><div id="score1" class="score" aria-live="polite">0</div><div class="team"><button id="solid1" onclick="assign(1,'solids')"><span class="ball">1</span>Solids</button><button id="stripe1" onclick="assign(1,'stripes')"><span class="ball stripe">9</span>Stripes</button></div><button class="win" onclick="award(1)">+ Win Game</button><button class="default-win" onclick="award(1,'default')">Won by Default</button></article></section><div class="tools"><button onclick="undo()">↶ Undo Last Win</button><button class="danger" onclick="resetMatch()">Reset Match</button></div><div id="message" class="message" role="status"></div></div></div></div><section class="appearance" aria-label="Background color settings"><h2>Table Color</h2><p>Choose your preferred pool table felt color</p><div class="swatches" id="swatches"><button class="swatch" style="--swatch:#245c43" data-color="#245c43" aria-label="Green felt" title="Green felt"></button><button class="swatch" style="--swatch:#245b91" data-color="#245b91" aria-label="Blue felt" title="Blue felt"></button><button class="swatch" style="--swatch:#762e35" data-color="#762e35" aria-label="Red felt" title="Red felt"></button><button class="swatch" style="--swatch:#573c83" data-color="#573c83" aria-label="Purple felt" title="Purple felt"></button><button class="swatch" style="--swatch:#363b43" data-color="#363b43" aria-label="Charcoal felt" title="Charcoal felt"></button></div><label class="custom-color" for="customColor">Custom color <input type="color" id="customColor" value="#245c43" aria-label="Choose custom background color"></label></section><footer>Saved automatically on this device • 8-ball match scoring</footer></main><script>
-const KEY='pool-scorekeeper-v1';const THEME_KEY='pool-scorekeeper-theme-v2';const defaults=()=>({names:['Player 1','Player 2'],scores:[0,0],defaultWins:[0,0],teams:[null,null],history:[]});let state=defaults();try{const old=JSON.parse(localStorage.getItem(KEY));if(old&&Array.isArray(old.names)&&Array.isArray(old.scores)&&Array.isArray(old.teams)&&Array.isArray(old.history))state=old}catch{}// v5 stored all wins in scores. Separate default wins using the recorded history.
-if(!Array.isArray(state.defaultWins)){state.defaultWins=[0,0];for(const entry of state.history){if(entry&&typeof entry==='object'&&entry.reason==='default'&&(entry.winner===0||entry.winner===1)){state.defaultWins[entry.winner]++;}}for(let i=0;i<2;i++)state.scores[i]=Math.max(0,(Number(state.scores[i])||0)-state.defaultWins[i]);}
-const el=id=>document.getElementById(id);function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch{}}function message(s){el('message').textContent=s}function render(){for(let i=0;i<2;i++){el('name'+i).value=state.names[i];el('score'+i).textContent=state.scores[i];el('defaults'+i).textContent='('+state.defaultWins[i]+')';for(const t of ['solids','stripes']){const b=el((t==='solids'?'solid':'stripe')+i);b.classList.toggle('selected',state.teams[i]===t);b.setAttribute('aria-pressed',String(state.teams[i]===t))}}}function assign(i,t){if(state.teams[i]===t){state.teams=[null,null];message('Ball assignments cleared')}else{state.teams[i]=t;state.teams[1-i]=t==='solids'?'stripes':'solids';message(`${state.names[i]||'Player '+(i+1)}: ${t}`)}save();render()}function award(i,reason='normal'){state.history.push({winner:i,reason,teams:[...state.teams]});if(reason==='default')state.defaultWins[i]++;else state.scores[i]++;state.teams=[null,null];save();render();message(reason==='default'?`${state.names[i]||'Player '+(i+1)} won by default. Ball assignments cleared for the next game.`:`Game awarded to ${state.names[i]||'Player '+(i+1)}. Choose Solids or Stripes for the next game.`)}function undo(){if(!state.history.length){message('No wins to undo');return}const entry=state.history.pop();const i=typeof entry==='number'?entry:entry.winner;if(entry&&typeof entry==='object'&&entry.reason==='default')state.defaultWins[i]=Math.max(0,state.defaultWins[i]-1);else state.scores[i]=Math.max(0,state.scores[i]-1);if(typeof entry==='object'&&Array.isArray(entry.teams))state.teams=entry.teams;save();render();message('Last win undone; previous ball assignments restored when available')}function resetMatch(){if(!confirm('Reset regular wins, default wins, and ball assignments? Player names will be kept.'))return;state.scores=[0,0];state.defaultWins=[0,0];state.teams=[null,null];state.history=[];save();render();message('New match ready')}for(let i=0;i<2;i++)el('name'+i).addEventListener('input',e=>{state.names[i]=e.target.value;save()});render();
+.default-count{color:#f2cd79;font-weight:800;letter-spacing:0.5px;white-space:nowrap}
+
+.setup{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:0 0 16px}
+.setup label{font-weight:750}
+.setup select,.active-select{font:inherit;padding:10px;border-radius:10px;background:#102e25;color:white;border:1px solid #b0c3b4;max-width:100%}
+.setup-note{font-size:12px;color:#e0e9df}
+.table-content{padding:36px 18px 28px}
+.match-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.active-slot{min-width:0}
+
+
+.player{gap:11px;padding:14px;min-width:0}
+.score{font-size:clamp(65px,12vw,116px)}
+.hint{letter-spacing:1px}
+.bench{background:#0b1d18d9;border:1px solid #b7ad8466;border-radius:17px;padding:13px}
+.bench h2{font-size:15px;margin:0 0 10px;text-align:center;color:#f5e8cc}
+.bench-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px}
+.bench-player{border:1px solid #8ba69680;background:#122d24;border-radius:12px;padding:10px;display:flex;align-items:center;gap:9px;min-width:0}
+.bench-player .bench-name{font-weight:750;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.bench-player .bench-score{font-weight:850;font-size:23px;font-variant-numeric:tabular-nums}
+.bench-player .bench-default{color:#f2cd79;font-size:12px;font-weight:800}
+.bench-player button{background:#304e3c;color:white;border:1px solid #91aa95;border-radius:9px;padding:7px;font-size:12px;font-weight:700}
+.empty-bench{color:#d4e4da;text-align:center;font-size:13px}
+@media(min-width:1100px){main{max-width:1330px}.match-layout:has(.bench-player){grid-template-columns:minmax(0,1fr) 215px}.bench-grid{grid-template-columns:1fr}.table-content{padding:36px 24px 28px}}
+@media(max-width:560px){.table-content{padding:33px 8px 20px}.board{gap:8px}.player{padding:10px 7px;gap:10px}.score{font-size:64px}.active-slot select{font-size:13px;padding:7px 3px}.default-win{font-size:12px}.bench-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bench-player{flex-wrap:wrap}.bench-player button{width:100%}}
+
+main{max-width:1580px}
+.desktop-layout{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:12px}
+.desktop-layout.has-waiting{grid-template-columns:minmax(0,1fr)}
+.side-players{background:#14271fdc;border:1px solid #b7ad8466;border-radius:16px;padding:12px;min-width:0}
+.side-players h2{font-size:13px;color:#f5e8cc;text-align:center;margin:0 0 12px}
+.side-list{display:flex;flex-direction:column;gap:12px}
+.side-players .bench-player{flex-wrap:wrap;justify-content:center;text-align:center;padding:12px 8px}
+.side-players .bench-name{flex-basis:100%;font-size:14px;width:100%;min-width:0;background:#0e231b;color:#fff;border:1px solid #91aa95;border-radius:8px;padding:8px 5px;text-align:center}
+.side-players .bench-score{font-size:32px}
+.side-players .bench-default{font-size:13px}
+
+.side-players[hidden]{display:none!important}
+@media(min-width:900px){
+ .desktop-layout.has-waiting{grid-template-columns:minmax(140px,190px) minmax(0,1fr) minmax(140px,190px)}
+ .desktop-layout.has-waiting .pool-table{min-width:0}
+ .desktop-layout.has-waiting .table-content{padding:36px 12px 25px}
+ .desktop-layout.has-waiting .score{font-size:clamp(55px,6vw,105px)}
+ .desktop-layout.has-waiting .player{padding:12px;gap:10px}
+ .desktop-layout.has-waiting .win{min-height:54px}
+ .desktop-layout.has-waiting .team button{min-height:46px;font-size:13px}
+ .desktop-layout.has-waiting .player input{font-size:clamp(14px,1.7vw,23px)}
+ .desktop-layout.has-waiting .right-side[hidden],.desktop-layout.has-waiting .left-side[hidden]{visibility:hidden;display:block!important;border:0;background:none}
+}
+@media(max-width:899px){
+ .desktop-layout.has-waiting{grid-template-columns:1fr 1fr}
+ .desktop-layout.has-waiting .pool-table{grid-column:1/-1;grid-row:1}
+ .desktop-layout.has-waiting .left-side{grid-column:1;grid-row:2}
+ .desktop-layout.has-waiting .right-side{grid-column:2;grid-row:2}
+ .side-list{flex-direction:row;flex-wrap:wrap}
+ .side-list .bench-player{flex:1 1 110px}
+}
+.rotation-option{display:inline-flex;align-items:center;gap:7px;color:#f6e9d1;font-weight:700;font-size:14px;cursor:pointer}.rotation-option input{width:18px;height:18px;accent-color:#e4b94e}.side-players h2{margin-bottom:8px}.side-players .bench-player:first-child{outline:2px solid #e4b94e;outline-offset:1px}.side-players .bench-player:first-child:before{content:'NEXT UP';font-size:10px;font-weight:800;color:#f2cd79;letter-spacing:1px;width:100%;text-align:center}
+.next-overlay{position:fixed;inset:0;background:#000b;z-index:1000;display:flex;align-items:center;justify-content:center;padding:18px}
+.next-dialog{width:min(420px,100%);max-height:90vh;overflow:auto;background:#16352a;color:#fff;border:2px solid #e4b94e;border-radius:18px;padding:22px;box-shadow:0 15px 55px #000b;text-align:center}
+.next-dialog h2{margin:0 0 8px;color:#f3d58b;font-size:25px}
+.next-dialog p{font-size:15px;line-height:1.4;margin:0 0 18px}
+.next-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.next-choice,.next-keep{font:inherit;cursor:pointer;border-radius:10px;padding:13px 8px;font-weight:800}
+.next-choice{background:#e4b94e;color:#14291e;border:0}
+.next-keep{background:transparent;color:#fff;border:1px solid #b3c3b7;width:100%;margin-top:16px}
+.next-choice:focus-visible,.next-keep:focus-visible{outline:3px solid white;outline-offset:2px}
+
+/* v16: more readable typography on 16:9 displays */
+body{font-size:17px}
+header p{font-size:17px}
+.setup label{font-size:18px}
+.setup select{font-size:17px}
+.setup-note{font-size:15px}
+.first-game-button{background:#e4b94e;color:#17251d;border:0;border-radius:10px;padding:11px 16px;font-weight:850;font-size:17px}
+.hint{font-size:15px}
+.default-win{font-size:16px}
+.team button{font-size:16px}
+.tools button{font-size:16px}
+.message{font-size:16px}
+.side-players h2{font-size:16px}
+.side-players .bench-name{font-size:17px}
+.side-players .bench-default{font-size:16px}
+.side-players .bench-score{font-size:36px}
+.next-dialog p{font-size:17px}
+.next-choice,.next-keep{font-size:17px}
+.first-game-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:15px 0}
+.first-game-fields label{display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:700;text-align:left}
+.first-game-fields select{width:100%;min-width:0;border:1px solid #9eaf9d;background:#163c2d;color:white;border-radius:10px;padding:12px 8px;font:inherit}
+.first-game-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.first-game-error{color:#ffb3a8;min-height:20px;margin:4px 0 12px!important}
+@media(max-width:560px){.first-game-fields{grid-template-columns:1fr}.side-players .bench-name{font-size:16px}.default-win{font-size:14px}.team button{font-size:15px}}
+</style></head><body><main><div class="desktop-layout"><aside class="side-players left-side" id="leftBench" aria-label="Waiting players left"><h2>Waiting Players</h2><div class="side-list" id="leftBenchGrid"></div></aside><div class="pool-table" aria-label="Pool table with six pockets"><div class="table-surface"><span class="pocket tl"></span><span class="pocket tm"></span><span class="pocket tr"></span><span class="pocket bl"></span><span class="pocket bm"></span><span class="pocket br"></span><div class="table-content"><header><h1>🎱 Pool Scorekeeper</h1><p>Two at the table. Everyone on the scoreboard.</p></header><div class="setup"><label for="playerCount">Players <select id="playerCount" aria-label="Number of players"><option value="2">2 players</option><option value="4">4 players</option><option value="6">6 players</option></select></label><button id="chooseFirst" class="first-game-button" type="button">Choose First Game</button><span class="setup-note">After a win, choose who plays next.</span></div><div class="match-layout"><section class="board" id="board" aria-label="Two active players"></section></div><div class="tools"><button onclick="undo()">↶ Undo Last Win</button><button class="danger" onclick="resetMatch()">Reset Match</button></div><div id="message" class="message" role="status"></div></div></div></div><aside class="side-players right-side" id="rightBench" aria-label="Waiting players right"><h2>Waiting Players</h2><div class="side-list" id="rightBenchGrid"></div></aside></div><section class="appearance" aria-label="Background color settings"><h2>Table Color</h2><p>Choose your preferred pool table felt color</p><div class="swatches" id="swatches"><button class="swatch" style="--swatch:#245c43" data-color="#245c43" aria-label="Green felt" title="Green felt"></button><button class="swatch" style="--swatch:#245b91" data-color="#245b91" aria-label="Blue felt" title="Blue felt"></button><button class="swatch" style="--swatch:#762e35" data-color="#762e35" aria-label="Red felt" title="Red felt"></button><button class="swatch" style="--swatch:#573c83" data-color="#573c83" aria-label="Purple felt" title="Purple felt"></button><button class="swatch" style="--swatch:#363b43" data-color="#363b43" aria-label="Charcoal felt" title="Charcoal felt"></button></div><label class="custom-color" for="customColor">Custom color <input type="color" id="customColor" value="#245c43" aria-label="Choose custom background color"></label></section><footer>Saved automatically on this device • 8-ball match scoring</footer></main><script>
+const KEY='pool-scorekeeper-v1';const THEME_KEY='pool-scorekeeper-theme-v2';
+const fresh=()=>({playerCount:2,names:Array.from({length:6},(_,i)=>'Player '+(i+1)),scores:Array(6).fill(0),defaultWins:Array(6).fill(0),teams:Array(6).fill(null),history:[],active:[0,1],waitingQueue:[],winnerStays:false});
+let state=fresh();
+try{
+ const old=JSON.parse(localStorage.getItem(KEY));
+ if(old&&Array.isArray(old.names)&&Array.isArray(old.scores)){
+  const base=fresh();
+  state={...base,...old};
+  for(const field of ['names','scores','teams','defaultWins'])
+   state[field]=Array.from({length:6},(_,i)=>Array.isArray(old[field])?(old[field][i]??base[field][i]):base[field][i]);
+  if(!Array.isArray(old.defaultWins)){
+   for(const entry of Array.isArray(old.history)?old.history:[]){
+    if(entry&&typeof entry==='object'&&entry.reason==='default'&&Number.isInteger(entry.winner)&&entry.winner>=0&&entry.winner<6)state.defaultWins[entry.winner]++;
+   }
+   state.scores=state.scores.map((n,i)=>Math.max(0,(Number(n)||0)-state.defaultWins[i]));
+  }
+  state.history=Array.isArray(old.history)?old.history:[];
+  state.playerCount=[2,4,6].includes(Number(old.playerCount))?Number(old.playerCount):2;
+  state.winnerStays=false;
+  state.active=Array.isArray(old.active)&&old.active.length===2&&old.active.every(i=>Number.isInteger(i)&&i>=0&&i<state.playerCount)&&old.active[0]!==old.active[1]?old.active.slice():[0,1];
+ }
+}catch(e){console.warn('Could not load saved match:',e)}
+function normalizeQueue(){
+ const waiting=Array.from({length:state.playerCount},(_,i)=>i).filter(i=>!state.active.includes(i));
+ const previous=Array.isArray(state.waitingQueue)?state.waitingQueue:[];
+ state.waitingQueue=[...new Set([...previous,...waiting])].filter(i=>waiting.includes(i));
+}
+normalizeQueue();
+const el=id=>document.getElementById(id);
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){console.warn('Could not save match:',e)}}
+function message(s){el('message').textContent=s}
+function nameOf(i){return state.names[i]||'Player '+(i+1)}
+function clearTeams(){state.teams=Array(6).fill(null)}
+function makePlayer(i){
+ const card=document.createElement('article');card.className='player';
+ card.innerHTML=`<input aria-label="Player name" maxlength="30"><div class="hint">Games Won <span class="default-count">(0)</span></div><div class="score" aria-live="polite">0</div><div class="team"><button class="solid" type="button"><span class="ball">1</span>Solids</button><button class="stripe" type="button"><span class="ball stripe">9</span>Stripes</button></div><button class="win" type="button">+ Win Game</button><button class="default-win" type="button">Won by Default</button>`;
+ const input=card.querySelector('input');input.value=state.names[i];
+ input.addEventListener('input',e=>{state.names[i]=e.target.value;save();renderBench();updateSelectors()});
+ card.querySelector('.score').textContent=state.scores[i];
+ card.querySelector('.default-count').textContent='('+state.defaultWins[i]+')';
+ for(const [t,cls] of [['solids','.solid'],['stripes','.stripe']]){
+  const b=card.querySelector(cls);b.classList.toggle('selected',state.teams[i]===t);
+  b.setAttribute('aria-pressed',String(state.teams[i]===t));b.addEventListener('click',()=>assign(i,t));
+ }
+ card.querySelector('.win').addEventListener('click',()=>award(i,'normal'));
+ card.querySelector('.default-win').addEventListener('click',()=>award(i,'default'));
+ return card;
+}
+// Active players are changed through the Who Plays Next dialog or Play Next buttons.
+function updateSelectors(){}
+function renderBench(){
+ const left=el('leftBench'),right=el('rightBench');
+ const leftGrid=el('leftBenchGrid'),rightGrid=el('rightBenchGrid');
+ leftGrid.replaceChildren();rightGrid.replaceChildren();
+ normalizeQueue();
+ const others=[...state.waitingQueue];
+ const midpoint=Math.ceil(others.length/2);
+ left.hidden=midpoint===0;right.hidden=others.length===midpoint;
+ others.forEach((i,k)=>{
+  const card=document.createElement('div');card.className='bench-player';
+  const label=document.createElement('input');label.className='bench-name';label.type='text';label.maxLength=30;label.value=state.names[i];label.setAttribute('aria-label','Name of waiting player '+(i+1));
+  label.addEventListener('input',()=>{state.names[i]=label.value;save();updateSelectors()});
+  const score=document.createElement('span');score.className='bench-score';score.textContent=state.scores[i];
+  const def=document.createElement('span');def.className='bench-default';def.textContent='('+state.defaultWins[i]+')';
+  card.append(label,score,def);
+  (k<midpoint?leftGrid:rightGrid).append(card);
+ });
+ document.querySelector('.desktop-layout').classList.toggle('has-waiting',others.length>0);
+}
+function render(){
+ el('playerCount').value=String(state.playerCount);
+ const board=el('board');board.replaceChildren();
+ for(let slot=0;slot<2;slot++){
+  const wrap=document.createElement('div');wrap.className='active-slot';
+  wrap.append(makePlayer(state.active[slot]));board.append(wrap);
+ }
+ renderBench();
+}
+function setActive(slot,i){
+ if(!Number.isInteger(i)||i<0||i>=state.playerCount||i===state.active[1-slot]){render();return}
+ const leaving=state.active[slot];
+ state.active[slot]=i;
+ state.waitingQueue=state.waitingQueue.filter(j=>j!==i);
+ state.waitingQueue.push(leaving);
+ normalizeQueue();clearTeams();save();render();
+ message(nameOf(i)+' is now at the table. Ball assignments cleared.');
+}
+function assign(i,t){
+ if(!state.active.includes(i))return;
+ if(state.teams[i]===t){clearTeams();message('Ball assignments cleared')}
+ else{
+  clearTeams();const opponent=state.active.find(j=>j!==i);
+  state.teams[i]=t;state.teams[opponent]=t==='solids'?'stripes':'solids';
+  message(nameOf(i)+': '+t+'; '+nameOf(opponent)+': '+state.teams[opponent]);
+ }
+ save();render();
+}
+let nextPlayerDialog=null;
+function chooseFirstGame(){
+ closeNextPlayerDialog();
+ const overlay=document.createElement('div');overlay.className='next-overlay';
+ const dialog=document.createElement('section');dialog.className='next-dialog';
+ dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-labelledby','first-title');
+ const heading=document.createElement('h2');heading.id='first-title';heading.textContent='Who plays the first game?';
+ const description=document.createElement('p');description.textContent='Select two different players. Scores will be preserved.';
+ const fields=document.createElement('div');fields.className='first-game-fields';
+ const selects=[];
+ for(let slot=0;slot<2;slot++){
+  const label=document.createElement('label');label.textContent='Player '+(slot+1);
+  const select=document.createElement('select');select.setAttribute('aria-label','First game player '+(slot+1));
+  for(let i=0;i<state.playerCount;i++){
+   const option=document.createElement('option');option.value=String(i);option.textContent=nameOf(i);select.append(option);
+  }
+  select.value=String(state.active[slot]);label.append(select);fields.append(label);selects.push(select);
+ }
+ const error=document.createElement('p');error.className='first-game-error';error.setAttribute('role','alert');
+ const actions=document.createElement('div');actions.className='first-game-actions';
+ const confirm=document.createElement('button');confirm.type='button';confirm.className='next-choice';confirm.textContent='Start Game';
+ confirm.addEventListener('click',()=>{
+  const chosen=selects.map(select=>Number(select.value));
+  if(chosen[0]===chosen[1]){error.textContent='Please select two different players.';return}
+  state.active=chosen;
+  normalizeQueue();clearTeams();save();closeNextPlayerDialog();render();
+  message(nameOf(chosen[0])+' vs. '+nameOf(chosen[1])+'. Ready to play!');
+ });
+ const cancel=document.createElement('button');cancel.type='button';cancel.className='next-keep';cancel.textContent='Cancel';
+ cancel.addEventListener('click',closeNextPlayerDialog);
+ actions.append(confirm,cancel);dialog.append(heading,description,fields,error,actions);overlay.append(dialog);
+ document.body.append(overlay);nextPlayerDialog=overlay;selects[0].focus();
+}
+el('chooseFirst').addEventListener('click',chooseFirstGame);
+
+function closeNextPlayerDialog(){if(nextPlayerDialog){nextPlayerDialog.remove();nextPlayerDialog=null}}
+function askNextPlayer(winner){
+ closeNextPlayerDialog();normalizeQueue();
+ if(!state.waitingQueue.length)return;
+ const loserSlot=state.active.findIndex(j=>j!==winner);
+ const loser=state.active[loserSlot];
+ const overlay=document.createElement('div');overlay.className='next-overlay';
+ const dialog=document.createElement('section');dialog.className='next-dialog';
+ dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-labelledby','next-title');
+ const heading=document.createElement('h2');heading.id='next-title';heading.textContent='Who plays next?';
+ const desc=document.createElement('p');desc.textContent=nameOf(winner)+' stays at the table. Select who replaces '+nameOf(loser)+'.';
+ const choices=document.createElement('div');choices.className='next-choices';
+ for(const player of state.waitingQueue){
+  const button=document.createElement('button');button.type='button';button.textContent=nameOf(player);button.className='next-choice';
+  button.addEventListener('click',()=>{
+   if(!state.waitingQueue.includes(player)){closeNextPlayerDialog();return}
+   state.active[loserSlot]=player;
+   state.waitingQueue=state.waitingQueue.filter(j=>j!==player);
+   state.waitingQueue.push(loser);
+   normalizeQueue();clearTeams();save();closeNextPlayerDialog();render();
+   message(nameOf(winner)+' stays. '+nameOf(player)+' replaces '+nameOf(loser)+'.');
+  });choices.append(button);
+ }
+ const keep=document.createElement('button');keep.type='button';keep.className='next-keep';keep.textContent='Keep current players';
+ keep.addEventListener('click',()=>{closeNextPlayerDialog();message('Win recorded. Current players remain at the table.')});
+ dialog.append(heading,desc,choices,keep);overlay.append(dialog);document.body.append(overlay);nextPlayerDialog=overlay;
+ choices.querySelector('button')?.focus();
+}
+function award(i,reason='normal'){
+ if(!state.active.includes(i))return;
+ closeNextPlayerDialog();normalizeQueue();
+ state.history.push({winner:i,reason,teams:[...state.teams],active:[...state.active],waitingQueue:[...state.waitingQueue]});
+ if(reason==='default')state.defaultWins[i]++;else state.scores[i]++;
+ clearTeams();save();render();
+ message(nameOf(i)+(reason==='default'?' won by default.':' won the game.')+' Ball assignments cleared.');
+ askNextPlayer(i);
+}
+function undo(){
+ closeNextPlayerDialog();
+ if(!state.history.length){message('No wins to undo');return}
+ const entry=state.history.pop();const i=typeof entry==='number'?entry:entry.winner;
+ if(!Number.isInteger(i)||i<0||i>=6){message('Unable to undo this entry');return}
+ if(entry&&typeof entry==='object'&&entry.reason==='default')state.defaultWins[i]=Math.max(0,state.defaultWins[i]-1);
+ else state.scores[i]=Math.max(0,state.scores[i]-1);
+ if(entry&&typeof entry==='object'&&Array.isArray(entry.active)&&entry.active.length===2&&entry.active.every(j=>Number.isInteger(j)&&j>=0&&j<state.playerCount)&&entry.active[0]!==entry.active[1])state.active=[...entry.active];
+ if(entry&&typeof entry==='object'&&Array.isArray(entry.waitingQueue))state.waitingQueue=[...entry.waitingQueue];
+ state.teams=entry&&typeof entry==='object'&&Array.isArray(entry.teams)?Array.from({length:6},(_,j)=>entry.teams[j]??null):Array(6).fill(null);
+ normalizeQueue();save();render();message('Last win undone; previous players, waiting order, and ball assignments restored.');
+}
+function resetMatch(){
+ closeNextPlayerDialog();
+ if(!confirm('Reset all regular wins, default wins, and ball assignments for all players? Names and player count will be kept.'))return;
+ state.scores=Array(6).fill(0);state.defaultWins=Array(6).fill(0);clearTeams();state.history=[];
+ save();render();message('New match ready');
+}
+el('playerCount').addEventListener('change',e=>{
+ closeNextPlayerDialog();
+ state.playerCount=Number(e.target.value);
+ if(state.active.some(i=>i>=state.playerCount)||state.active[0]===state.active[1])state.active=[0,1];
+ normalizeQueue();clearTeams();save();render();message('Showing '+state.playerCount+' players. All scores preserved.');
+});
+render();
 function shade(hex,factor){const n=parseInt(hex.slice(1),16);const c=[n>>16,(n>>8)&255,n&255].map(v=>Math.round(v*factor));return '#'+c.map(v=>v.toString(16).padStart(2,'0')).join('')}
 function setTheme(hex){if(!/^#[0-9a-fA-F]{6}$/.test(hex))return;document.documentElement.style.setProperty('--felt-light',hex);document.documentElement.style.setProperty('--felt-dark',shade(hex,.24));document.documentElement.style.setProperty('--panel',shade(hex,.56));document.documentElement.style.setProperty('--panel-border',shade(hex,1.15));document.documentElement.style.setProperty('--field',shade(hex,.34));document.querySelector('meta[name="theme-color"]').content=shade(hex,.24);el('customColor').value=hex;document.querySelectorAll('.swatch').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.color.toLowerCase()===hex.toLowerCase())));try{localStorage.setItem(THEME_KEY,hex)}catch{}}
 document.querySelectorAll('.swatch').forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.color)));el('customColor').addEventListener('input',e=>setTheme(e.target.value));let savedTheme='#245c43';try{savedTheme=localStorage.getItem(THEME_KEY)||savedTheme}catch{}setTheme(savedTheme);
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
+if(location.protocol!=='file:'&&'serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
 </script></body></html>

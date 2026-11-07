@@ -1,5 +1,4 @@
-Pool Scorekeeper PWA v6
+Pool Scorekeeper v16
 
-Games Won displays regular wins as the large number and default wins separately in parentheses immediately beside Games Won. A default win does not increment the regular-win counter. Undo Last Win reverses the correct type; Reset Match clears both counters. Existing v5 scores are migrated by reading recorded default wins from history.
-
-Upload all files to the root of your GitHub Pages repository, replacing existing files.
+Open index.html in a browser, or upload all files to GitHub Pages.
+Choose First Game opens a dialog to select any two players before playing. Other players wait at the sides. Scores are preserved when choosing the first players. Fonts are slightly larger.

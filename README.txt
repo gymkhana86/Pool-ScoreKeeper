@@ -1,4 +1,3 @@
-Pool Scorekeeper v16
+Pool Scorekeeper v19
 
-Open index.html in a browser, or upload all files to GitHub Pages.
-Choose First Game opens a dialog to select any two players before playing. Other players wait at the sides. Scores are preserved when choosing the first players. Fonts are slightly larger.
+Open index.html in Chrome or Edge. Each active player has a Mark Last Shot button. Press it when you pause the game; the selected button highlights who shot last. Press it again to clear or press the other player button to switch. Last-shot status saves locally and clears when a new game begins or players change. The separate pool cue still marks the last winner/next breaker.
